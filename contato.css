@@ -1,0 +1,260 @@
+:root {
+    --circle: #3cb371;
+    --color-facebook: #3b5a9b;
+    --color-instagram: #af4076;
+    --color-whatsapp: #25d365;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(to left, #2b1301, #0a1aff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--circle);
+    clip-path: circle(30% at right);
+    z-index: -1;
+}
+
+.container {
+    width: 80%;
+    min-height: 80%;
+    margin: auto;
+    padding: 1rem 0;
+    color: white;
+    background: rgba(255, 255, 255, 0.046);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+    padding: 1rem 0;
+}
+
+#logo {
+    font-size: 45px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+    font-weight: 200;
+    letter-spacing: 4px;
+    transition: all 0.3s ease-in;
+}
+
+#logo:hover {
+    letter-spacing: 14px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 7rem;
+}
+
+nav ul li a {
+    color: white;
+    font-weight: 200;
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.543);
+    transition: 0.3s ease-in;
+    position: relative;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: #00bfff;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--circle);
+    border-radius: 1rem;
+    transition: 0.2s ease-in;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.content .text {
+    width: 50%;
+}
+
+.content .text h1 {
+    font-size: 3vw;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(209, 206, 206, 0.842);
+    line-height: 110%;
+    margin-bottom: 1.5rem;
+}
+
+.content .text p {
+    font-weight: 300;
+    font-size: 1vw;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    font-size: 24px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.social-icon:hover {
+    background-color: #555;
+}
+
+.social-icon--facebook {
+    background: var(--color-facebook);
+}
+
+.social-icon--instagram {
+    background: var(--color-instagram);
+}
+
+.social-icon--whatsapp {
+    background: var(--color-whatsapp);
+}
+
+.tooltip {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: 0.8rem 1rem;
+    border-radius: 40px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    opacity: 0;
+    pointer-events: none;
+    text-transform: uppercase;
+    transform: translate(-50%, -100%);
+    transition: all 0.3s ease;
+    visibility: hidden;
+    z-index: 1;
+    background: #333;
+    color: white;
+}
+
+.social-icon:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(-50%, -150%);
+}
+
+.tooltip:after {
+    display: block;
+    position: absolute;
+    bottom: 1px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    content: "";
+    border: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: transparent;
+    border-top-color: #333;
+    transform: translate(-50%, 100%);
+}
+
+
+@media only screen and (max-width: 850px) {
+    nav, .content, .text {
+        width: 90% !important;
+    }
+    #logo {
+        font-size: 23px;
+    }
+    nav ul {
+        gap: 2rem;
+    }
+    .content {
+        flex-direction: column-reverse;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .content .text h1 {
+        font-size: 40px;
+    }
+    .content .text p {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    nav ul {
+        gap: 1.5rem;
+    }
+    nav ul li a {
+        font-size: 14px;
+    }
+    .content .text h1 {
+        font-size: 30px;
+    }
+    .content .text p {
+        font-size: 14px;
+    }
+}
+.carousel {
+    width: 36%; /* Ajuste o tamanho conforme necessário */
+    height: auto; /* Para garantir que o carrossel seja responsivo */
+  }
+  
+  .carousel-inner img {
+    width: 100%;
+    height: auto; /* Mantenha a proporção da imagem */
+    border-radius:10%;
+  }
+  

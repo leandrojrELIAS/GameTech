@@ -1,0 +1,169 @@
+/* Importação da fonte */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/* Variáveis de cor */
+:root {
+    --circle: #3CB371;
+    --primary-bg: linear-gradient(to left, #2b1301, #0a1aff);
+    --link-hover-color: #00BFFF;
+    --white: #fff;
+    --black: #000;
+}
+
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+/* Estilos do corpo */
+body {
+    background: var(--primary-bg);
+    display: flex;
+    flex-direction: column; /* Coluna para alinhar nav e conteúdo */
+    height: 100vh;
+    align-items: center;
+    justify-content: flex-start; /* Ajustado para o topo */
+    position: relative; /* Necessário para o efeito do ::after */
+}
+
+/* Fundo circular */
+body::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--circle);
+    clip-path: circle(30% at right);
+    z-index: -1;
+}
+
+/* Estilo da navegação */
+nav {
+    width: 100%;
+    background-color: transparent; /* Deixa o fundo da nav transparente */
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed; /* Torna a navegação fixa no topo */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000; /* Garante que a navegação esteja acima de outros elementos */
+    backdrop-filter: blur(10px); /* Efeito de desfoque de fundo */
+}
+
+#logo {
+    font-size: 30px;
+    text-transform: uppercase;
+    color: var(--white);
+    font-weight: 300;
+    letter-spacing: 4px;
+    margin-left: 2rem;
+    transition: all .3s ease-in;
+}
+
+#logo:hover {
+    letter-spacing: 14px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    margin-right: 2rem;
+    gap: 3rem;
+}
+
+nav ul li a {
+    all: unset;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: var(--white);
+    cursor: pointer;
+    transition: .3s ease-in;
+    position: relative;
+}
+
+nav ul li a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Estilo do contêiner principal */
+.container {
+    width: 80%;
+    margin: 100px auto; /* Espaço para o menu fixo */
+    padding: 1rem;
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.046);
+    border-radius: 1rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, .5);
+}
+
+/* Estilo da área de conteúdo */
+.content {
+    display: flex;
+    flex-direction: column; /* Para alinhar texto ao centro */
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 20px; /* Ajuste de margem para o texto */
+}
+
+.content .text {
+    text-align: center; /* Centralizar texto */
+    max-width: 600px; /* Limite de largura para melhor leitura */
+}
+
+.content .text h1 {
+    font-size: 3vw;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(209, 206, 206, 0.842);
+    line-height: 110%;
+    margin-bottom: 1.5rem;
+}
+
+.content .text p {
+    font-weight: 300;
+    font-size: 1.2vw;
+}
+
+/* Ajuste de responsividade */
+@media only screen and (max-width: 850px) { 
+    nav ul {
+        gap: 1.5rem;
+    }
+    nav #logo {
+        font-size: 23px;
+    }
+    nav ul li a {
+        font-size: 16px;
+    } 
+    .content .text h1 {
+        font-size: 5vw;
+    }
+    .content .text p {
+        font-size: 2.5vw;
+    }
+}
+
+@media only screen and (max-width: 550px) {  
+    nav ul {
+        gap: 1rem;
+    }
+    nav ul li a {
+        font-size: 14px;
+    }
+    .content .text h1 {
+        font-size: 6vw;
+    }
+    .content .text p {
+        font-size: 3vw;
+    }
+}
